@@ -1,10 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
-
+# Reproducible Research: Peer Assessment 1
 
 ## Loading and preprocessing the data
 Please make sure that your working directory contains the current file and the file "activity.zip". The loading of the data is straight forward. and the "Data Processing" part is a little of processing of the date and time, to make an new variable "date.complete" as a POSIXct variable. This step is not mandatory, but it helps producing a better graph at the end of the present document
@@ -44,7 +38,7 @@ hist(Total[,2], breaks = 30, main = "Distribution of the sum of steps taken in a
      ,col = 'slategray3', xlab = "Sum of steps")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 ### 3. Mean and median of the total number of steps taken per day
 
@@ -71,7 +65,7 @@ plot(Total.interval$interval, Total.interval$steps, type = 'l', xlab='Interval o
      ylab = 'Number of steps',main = "Evolution of the average number of steps during a day time")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 ### 2. Interval of the maximum average number of steps
 Averaged through the days, the interval with the maximum activity in terms of steps is 08:35. It may corresponds to the time of departure to the user's workplace
@@ -117,7 +111,7 @@ hist(Total.NA.filled[,'steps'], breaks = 30, main = "Distribution of the sum of 
      ,col = 'slategray3', xlab = "Sum of steps")
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
 
 ```r
 list(Mean.Daily.Steps.NA.filled = mean(Total.NA.filled$steps),
@@ -178,5 +172,5 @@ p + facet_wrap(~daytype,ncol = 1) +
                      minor_breaks=date_breaks("30 min"), labels=date_format("%H:%M"))
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 

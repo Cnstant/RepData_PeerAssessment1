@@ -5,7 +5,6 @@ output:
     keep_md: true
 ---
 
-
 ## Loading and preprocessing the data
 Please make sure that your working directory contains the current file and the file "activity.zip". The loading of the data is straight forward. and the "Data Processing" part is a little of processing of the date and time, to make an new variable "date.complete" as a POSIXct variable. This step is not mandatory, but it helps producing a better graph at the end of the present document
 
