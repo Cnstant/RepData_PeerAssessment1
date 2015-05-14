@@ -153,8 +153,11 @@ list(Sd.Daily.Steps = sd(Total$steps), Sd.Daily.Steps.NA.filled = sd(Total.NA.fi
 Now the data set has a new variable "daytype"
 
 ```r
-data.NA.filled$daytype[weekdays(data.NA.filled$date) == 'dimanche' | weekdays(data.NA.filled$date)=='samedi'] = 'week end' 
-data.NA.filled$daytype[!(weekdays(data.NA.filled$date) == 'dimanche' | weekdays(data.NA.filled$date)=='samedi')] = 'week day' 
+data.NA.filled$daytype[weekdays(data.NA.filled$date) == 'dimanche' | 
+                           weekdays(data.NA.filled$date)=='samedi'] = 'week end' 
+data.NA.filled$daytype[!(weekdays(data.NA.filled$date) == 'dimanche' 
+                         | weekdays(data.NA.filled$date)=='samedi')] = 'week day' 
+
 data.NA.filled$daytype <- as.factor(data.NA.filled$daytype)
 data.NA.filled$interval <- as.factor(data.NA.filled$interval)
 data.NA.filled<- group_by(data.NA.filled,daytype,interval)
@@ -168,8 +171,11 @@ library(scales)
 
 interm <- summarize(data.NA.filled, test = mean(steps))
 p <- ggplot(data = interm, aes(x=rep(data$date.complete[1:288], times = 2),y=test,group=1))+ geom_line()
-p + facet_wrap(~daytype,ncol = 1)+ xlab('time interval')+ylab('Number of steps')+ 
-    ggtitle("Average number of steps during a day")+scale_x_datetime(breaks = date_breaks("90 min"), minor_breaks=date_breaks("30 min"), labels=date_format("%H:%M"))
+p + facet_wrap(~daytype,ncol = 1) + 
+    xlab('time interval')+ylab('Number of steps')+ 
+    ggtitle("Average number of steps during a day")+
+    scale_x_datetime(breaks = date_breaks("90 min"), 
+                     minor_breaks=date_breaks("30 min"), labels=date_format("%H:%M"))
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
