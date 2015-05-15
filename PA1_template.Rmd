@@ -67,7 +67,7 @@ list(Max.Interval = Total.interval[Total.interval$steps == max(Total.interval$st
 ```{r}
 list(Number.of.NA.steps = sum(is.na(data$steps)))
 ```
-As a result `r sum(is.na(data$steps))/dim(data)[1]`% of the variable "steps" is composed by NA values
+As a result `r 100*sum(is.na(data$steps))/dim(data)[1]`% of the variable "steps" is composed by NA values
 
 ### 2&3. Filling NA values
 In order to fill in the data set, NA values were replaced by the according mean value for that particular 5 min interval. As a result, the mean value of steps talen in a day will not be affected. The data set without any NA values is stores in the data frame **data.NA.filled**. *NB* : the function *rep* here is used as a trick, to distribute the mean values in all the missing values that can be across several days
